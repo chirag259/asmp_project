@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
+import { toast } from "sonner";
 export default function Registerform() {
     const [form, setForm] = useState({
         name: "",
@@ -23,6 +24,8 @@ export default function Registerform() {
 
         if (!form.name || !form.email || !form.password || !form.mobile) {
             setError("ALL FIELDS ARE NECESSARY");
+            toast.error("all fields are necessary");
+
             return;
         }
 
@@ -42,16 +45,18 @@ export default function Registerform() {
             //       return;
             //  }
 
-            const resul = await axios.post("/api/register", form).then((resul) => {
-                console.log(resul);
-                setForm({
-                    ...form,
-                    name: "",
-                    email: "",
-                    password: "",
-                    mobile: "",
+            const resul = await axios
+                .post("/api/register", form)
+                .then((resul) => {
+                    console.log(resul);
+                    setForm({
+                        ...form,
+                        name: "",
+                        email: "",
+                        password: "",
+                        mobile: "",
+                    });
                 });
-            });
 
             // if (res.ok) {
             //     const form = e.target;
