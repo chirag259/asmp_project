@@ -10,3 +10,9 @@ input{
       bg-blue-100/40 ;
 }
 
+@media (max-width: 768px) {
+  .max-w-md {
+      max-width: 90%;
+  }
+}
+

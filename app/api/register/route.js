@@ -6,7 +6,7 @@ import bcrypt from "bcryptjs";
 export async function POST(req) {
     try {
         const body = await req.json();
-        //console.log(body);
+        
 
         const { name, email, password, mobile } = body;
         console.log(name);
@@ -31,7 +31,7 @@ export async function POST(req) {
         console.log("hello its post function");
 
         const hashedPassword = await bcrypt.hash(password, 10);
-        //await connectMongoDB();
+    
         console.log(hashedPassword);
         const registereduser = await User.create({
             name,

@@ -48,7 +48,7 @@ export default function Registerform() {
             const resul = await axios
                 .post("/api/register", form)
                 .then((resul) => {
-                    console.log(resul);
+                    console.log(res);ul
                     setForm({
                         ...form,
                         name: "",
@@ -73,7 +73,7 @@ export default function Registerform() {
     return (
         <div className="grid place-items-center h-screen ">
             <div className="shadow-lg p-5 rounded-lg border-t-4 border-blue-400">
-                <h1 className="text-xl font-bold my-4 ">Register</h1>
+                <h1 className="text-xl font-bold my-4 ">Register to CamOnRent</h1>
 
                 <form onSubmit={handleSubmit} className="flex flex-col gap-3">
                     <input
